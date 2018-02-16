@@ -1,0 +1,32 @@
+<h1>INDEX</h1>
+
+<h2><%= notice %></h2>
+
+<%= link_to 'Crear nuevo ToDo', todos_new_path %>
+
+<h5>ToDos</h5>
+<table>
+  <tr>
+    <th>Descripcion</th>
+    <th>Completado</th>
+    <th>Accion</th>
+  </tr>
+  <% @todos.each do |t| %>
+  <div class="card">
+    <tr>
+      <td><%= link_to t.description, todo_path(t.id) %></td>
+      <!-- <td><%= t.description %></td> -->
+      <% if t.completed == true %>
+        <td>☑</td>
+      <% else %>
+        <td>☐</td>
+      <% end %>
+      <td><%= link_to 'editar', edit_todo_path(t) %></td>
+      <td><%= link_to 'eliminar', delete_todo_path(t), method: :delete %></td>
+      <% if t.completed == false %>
+      <td><%= button_to "completar", complete_todo_path(t), :method => "get" %></td>
+      <% end %>
+    </tr>
+  </div>
+  <% end %>
+</table>

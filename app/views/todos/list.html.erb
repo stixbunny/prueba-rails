@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <table>
+        <tr>
+          <th>Sin completar</th>
+        </tr>
+        <% @todos.each do |todo| %>
+        <tr>
+          <% if todo.completed == false %>
+          <td><%= todo.description %></td>
+          <% end %>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="col-sm-6">
+      <table>
+        <tr>
+          <th>Completados</th>
+        </tr>
+        <% @todos.each do |todo| %>
+        <tr>
+          <% if todo.completed == true %>
+          <td><%= todo.description %></td>
+          <% end %>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

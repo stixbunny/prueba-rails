@@ -1,0 +1,13 @@
+<h1>NEW</h1>
+
+<h2><%= notice %></h2>
+
+<h5>Crear un nuevo ToDo</h5>
+
+<%= form_with(model: @todo, local: true) do |form| %>
+  <!-- quedan con el scope de post -->
+  <%= form.label :description %>
+  <%= form.text_field :description%>
+  <br>
+  <%= form.submit 'Crear' %>
+<% end %>
